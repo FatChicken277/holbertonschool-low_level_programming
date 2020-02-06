@@ -24,6 +24,6 @@ else
 {
 text = "and is 0";
 }
-printf("Last digit of %d is %d %s \n", n, lastDigit, text);
+printf("Last digit of %d is %d %s\n", n, lastDigit, text);
 return (0);
 }
