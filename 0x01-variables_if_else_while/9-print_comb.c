@@ -6,7 +6,7 @@
 int main(void)
 {
 int n;
-char *text,*esp;
+char *text, *esp;
 text = ",";
 esp = " ";
 for (n = 0; n >= 0 && n < 10; n++)
