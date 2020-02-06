@@ -6,16 +6,13 @@
 int main(void)
 {
 int n;
-char *text, *esp;
-text = ",";
-esp = " ";
 for (n = 0; n >= 0 && n < 10; n++)
 {
 putchar((char)(n + 48));
 if (n < 9)
 {
-putchar(*text);
-putchar(*esp);
+putchar(44);
+putchar(32);
 }
 if (n == 9)
 {
