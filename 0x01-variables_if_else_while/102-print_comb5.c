@@ -20,7 +20,7 @@ while (m < 10)
 putchar((char)(o + 48));
 putchar((char)(n + 48));
 putchar(32);
-putchar((char)(p + 48));  
+putchar((char)(p + 48));
 putchar((char)(m + 48));
 if (!((m == 9 && p == 9) && (o == 9 && n == 8)))
 {
@@ -29,7 +29,7 @@ putchar(32);
 }
 m++;
 }
-d = -1; 
+d = -1;
 }
 if (o == 9 && n == 8)
 break;
