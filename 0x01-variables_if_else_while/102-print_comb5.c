@@ -14,7 +14,7 @@ for (p = 0; p < 10; p++)
 {
 for (m = 0; m < 10; m++)
 {
-if (n < m)
+if (n <= m)
 {
 putchar((char)(o + 48));
 putchar((char)(n + 48));
