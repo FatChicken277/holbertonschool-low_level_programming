@@ -12,6 +12,6 @@ if (n < 0)
 n = (n * (-1));
 }
 mod = (n % 10);
-_putchar(mod + 48);
+_putchar((char)(mod + 48));
 return (mod);
 }
