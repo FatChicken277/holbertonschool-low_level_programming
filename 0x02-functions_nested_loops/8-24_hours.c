@@ -15,18 +15,18 @@ void jack_bauer(void)
 	    {
 	      for (m = 0; m < 10; m++)
 		{
-		  if (!(o == 2 && n == 4 && p == 0 && m == 0))
+		  if (o == 2 && n == 4 && p == 0 && m == 0)
 		    {
-		  _putchar((char)(o + 48));
-		  _putchar((char)(n + 48));
-		  _putchar(58);
-		  _putchar((char)(p + 48));
-		  _putchar((char)(m + 48));
-		  _putchar('\n');
+		      return;
 		    }
 		  else
 		    {
-		      exit(1);
+		      _putchar((char)(o + 48));
+		      _putchar((char)(n + 48));
+		      _putchar(58);
+		      _putchar((char)(p + 48));
+		      _putchar((char)(m + 48));
+		      _putchar('\n');
 		    }
 		}
 	    }
