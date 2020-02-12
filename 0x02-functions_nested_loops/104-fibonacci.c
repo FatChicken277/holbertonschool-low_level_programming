@@ -15,7 +15,7 @@ for (c = 0; c < 99; c++)
 {
 tf = t1 + t2;
 printf("%lu", tf);
-if (!(c == 47))
+if (!(c == 98))
 printf(", ");
 t1 = t2;
 t2 = tf;
