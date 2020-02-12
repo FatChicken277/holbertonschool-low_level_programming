@@ -11,7 +11,7 @@ t1 = 1;
 t2 = 2;
 printf("%ld\n", t1);
 printf("%ld\n", t2);
-for (c = 0; c < 49; c++)
+for (c = 0; c < 48; c++)
 {
 tf = t1 + t2;
 printf("%ld\n", tf);
