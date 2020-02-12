@@ -11,11 +11,11 @@ t1 = 1;
 t2 = 2;
 printf("%lu, ", t1);
 printf("%lu, ", t2);
-for (c = 0; c < 99; c++)
+for (c = 0; c < 96; c++)
 {
 tf = t1 + t2;
 printf("%lu", tf);
-if (!(c == 98))
+if (!(c == 95))
 printf(", ");
 t1 = t2;
 t2 = tf;
