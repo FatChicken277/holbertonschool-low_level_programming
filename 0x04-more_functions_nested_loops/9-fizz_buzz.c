@@ -12,11 +12,11 @@ if ((contador % 3 == 0) && (contador % 5 == 0))
 {
 printf("FizzBuzz ");
 }
-if (contador % 3 == 0)
+else if (contador % 3 == 0)
 {
 printf("Fizz ");
 }
-if (contador % 5 == 0)
+else if (contador % 5 == 0)
 {
 if (contador < 100)
 printf("Buzz ");
