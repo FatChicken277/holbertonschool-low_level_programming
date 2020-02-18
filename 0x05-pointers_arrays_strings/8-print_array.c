@@ -12,7 +12,7 @@ int x, r;
 x = n;
 for (r = 0; r != x; r++)
 {
-if (!(r == x - 1))
+if (r < x - 1)
 printf("%d, ", a[r]);
 else
 printf("%d", a[r]);
