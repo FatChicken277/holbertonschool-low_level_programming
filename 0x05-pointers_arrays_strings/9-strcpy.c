@@ -17,7 +17,7 @@ for (c = 0; c < i; c++)
 dest[m] = src[c];
 m++;
 }
- return (dest);
+return (dest);
 }
 
 
