@@ -1,8 +1,9 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- *puts_half - do something
- *@str: do something
+ *print_array - do something
+ *@a: do something
+ *@n: do something
  *Return: something
  */
 void print_array(int *a, int n)
