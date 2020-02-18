@@ -11,6 +11,7 @@ i = 0;
 for (i = 0; s[i] != '\0'; i++)
 {
 }
+i--;
 for (c = i; c != -1; c--)
 {
 _putchar(s[c]);
