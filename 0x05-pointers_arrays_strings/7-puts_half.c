@@ -14,7 +14,7 @@ for (i = 0; str[i] != '\0'; i++)
 if (i % 2 == 0)
 x = i / 2;
 else
-x = (i - 1) / 2;
+x = (i + 1) / 2;
 for (r = x; r < i; r++)
 {
 _putchar(str[r]);
