@@ -9,7 +9,6 @@
 void print_array(int *a, int n)
 {
 int x, r;
-n = 6;
 x = n;
 for (r = 0; r != x; r++)
 {
