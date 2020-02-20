@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- **_strncmp - do something
+ *_strcmp - do something
  *@s1: do something
  *@s2: do something
  *Return: something
@@ -18,7 +18,7 @@ else
 {
 n = (s1[i] - s2[i]);
 break;
-}    
+}
 i++;
 }
 return (n);
