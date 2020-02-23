@@ -1,7 +1,7 @@
 ## 0x00. C Hello_World
 
 <details>
-<summary>In this exercise we worked with the main functionalities of Linux Shell like: </summary>
+<summary>In this exercise we worked with the functionalities of C programming language like: </summary>
 <br>
 
 - Compiler gcc
