@@ -5,8 +5,8 @@
 <br>
 
 - Compiler gcc
-- c basic basic structure
-- c basic commands
+- C basic basic structure
+- C basic commands
 
 </details>
 
