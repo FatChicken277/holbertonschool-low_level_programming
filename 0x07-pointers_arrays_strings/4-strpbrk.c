@@ -7,20 +7,27 @@
  */
 char *_strpbrk(char *s, char *accept)
 {
-int i, ca, x = 0;
-for (ca = 0; accept[ca] != '\0'; ca++)
-;
+int i, j, a;
 for (i = 0; s[i] != '\0'; i++)
 {
-x = 0;
-while (!(accept[x] == s[i]) && x < ca)
+a = 0;
+for (j = 0; accept[j] != '\0'; j++)
 {
-x++;
-}
-if (accept[x] == s[i])
+if (s[i] == accept[j])
 {
-return (&s[x - 1]);
+a = 1;
+break;
 }
 }
+if (a == 1)
+break;
+}
+if (a == 1)
+{
+return (&s[i]);
+}
+else
+{
 return ('\0');
+}
 }
