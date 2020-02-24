@@ -13,7 +13,7 @@
 - [C More functions, more nested loops](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x04-more_functions_nested_loops)
 - [C Pointers, arrays and strings](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x05-pointers_arrays_strings)
 - [C More pointers, arrays and strings](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x06-pointers_arrays_strings)
-- [C Multi-dimensional Arrays in C](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x07-pointers_arrays_strings)
+- [C Even more pointers, arrays and strings](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x07-pointers_arrays_strings)
 
 </details>
 
