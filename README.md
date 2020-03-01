@@ -15,6 +15,8 @@
 - [C More pointers, arrays and strings](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x06-pointers_arrays_strings)
 - [C Even more pointers, arrays and strings](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x07-pointers_arrays_strings)
 - [C Recursion](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x08-recursion)
+- [C Static libraries](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x09-static_libraries)
+- [C Argc, argv](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x0A-argc_argv)
 
 </details>
 
