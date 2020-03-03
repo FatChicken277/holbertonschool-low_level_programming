@@ -10,16 +10,24 @@
  */
 int main(int argc, char *argv[])
 {
-int a = 0, i;
-if (argc < 2)
+int a = 0, i, o;
+if (argc == 1)
 {
 printf("0\n");
-return (1);
+return (0);
 }
 for (i = 1; i < argc; i++)
 {
 if (isdigit(*argv[i]) != 0)
 {
+for (o = 0; argv[i][o] != '\0'; o++)
+{
+if (isdigit(argv[i][o]) == 0)
+{
+printf("Error\n");
+return (1);
+}
+}
 a = a + atoi(argv[i]);
 }
 else
