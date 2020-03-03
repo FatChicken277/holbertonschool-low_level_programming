@@ -11,18 +11,19 @@ char *str_concat(char *s1, char *s2)
 	char *v;
 	unsigned int i, size = 0, size2 = 0, size3 = 1, c = 0;
 
+	if (s1 == 0)
+		s1 = "";
+	if (s2 == 0)
+		s2 = "";
 	for (i = 0; s1[i] != '\0'; i++)
 	{
 		size++;
 	}
-
 	for (i = 0; s2[i] != '\0'; i++)
 	{
 		size2++;
 	}
-
 	size3 += size + size2;
-
 	v = malloc(size3 * sizeof(char));
 
 	if (v == '\0')
@@ -42,8 +43,6 @@ char *str_concat(char *s1, char *s2)
 			c++;
 		}
 	}
-
 	v[i] = '\0';
-
 	return (v);
 }
