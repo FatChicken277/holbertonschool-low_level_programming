@@ -9,7 +9,7 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *v;
-	unsigned int i, size = -1, size2 = 1, size3 = 0, c = 0;
+	unsigned int i, size = 0, size2 = 0, size3 = 0, c = 0;
 
 	for (i = 0; s1[i] != '\0'; i++)
 	{
@@ -32,7 +32,7 @@ char *str_concat(char *s1, char *s2)
 
 	for (i = 0; i < size3; i++)
 	{
-		if (i <= size)
+		if (i < size)
 		{
 			v[i] = s1[i];
 		}
