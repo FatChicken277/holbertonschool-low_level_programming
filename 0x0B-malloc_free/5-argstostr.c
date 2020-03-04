@@ -13,7 +13,7 @@ char *argstostr(int ac, char **av)
 
 	if (ac == 0 || av == 0)
 	{
-		return ('\0');
+		return (NULL);
 	}
 	v = malloc(ac * sizeof(char *));
 	if (v == NULL)
