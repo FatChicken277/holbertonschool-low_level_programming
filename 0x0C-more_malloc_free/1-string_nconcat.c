@@ -26,7 +26,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			size2++;
 	}
 	size3 += size + size2;
-	v = malloc(size3 * sizeof(char));
+	v = malloc(size3 * sizeof(char) + 1);
 
 	if (v == '\0')
 	{
