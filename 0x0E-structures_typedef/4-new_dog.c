@@ -1,6 +1,12 @@
 #include "dog.h"
 #include <stdlib.h>
-
+/**
+ *new_dog - creates a new dog.
+ *@name: pointer to dog name.
+ *@age: dog age.
+ *@owner: pointer to dog owner name.
+ *Return: pointer to new dog.
+ */
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	int i;
@@ -11,36 +17,34 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		return (0);
 	}
-
-	for (i = 0; name[i] != '\0'; i++);
-	ndog->name = malloc(sizeof(char) * i + 1);
+	for (i = 0; name[i] != '\0'; i++)
+		;
+	ndog->name = malloc(sizeof(char) * i + 1)
+		;
 	if (ndog->name == 0)
 	{
 		free(ndog);
 		return (NULL);
 	}
-
-	for (i = 0; owner[i] != '\0'; i++);
-        ndog->owner = malloc(sizeof(char) * i + 1);
+	for (i = 0; owner[i] != '\0'; i++)
+		;
+	ndog->owner = malloc(sizeof(char) * i + 1);
 	if (ndog->owner == 0)
 	{
 		free(ndog->name);
 		free(ndog);
 		return (NULL);
 	}
-
-        for (i = 0; name[i] != '\0'; i++)
+	for (i = 0; name[i] != '\0'; i++)
 	{
 		ndog->name[i] = name[i];
 	}
-        ndog->name[i] = name[i];
+	ndog->name[i] = name[i];
 
 	for (i = 0; owner[i] != '\0'; i++)
 	{
 		ndog->owner[i] = owner[i];
 	}
-
-        ndog->age = age;
-
+	ndog->age = age;
 	return (ndog);
 }
