@@ -20,9 +20,13 @@ op_t ops[] = {
 
 	int i = 0;
 
-	while (ops[i].op[0] != s[0])
+	while (ops[i].op[0] != 0)
 	{
+		if (ops[i].op[0] == s[0])
+		{
+			return (ops[i].f);
+		}
 		i++;
 	}
-	return (ops[i].f);
+	return (0);
 }
