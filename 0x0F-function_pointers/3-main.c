@@ -11,8 +11,8 @@ int main(int argc, char *argv[])
 
 	if (argc == 4)
 	{
-		if (*argv[2] != '+' && *argv[2] != '-' && *argv[2] != '*'
-		&& *argv[2] != '/' && *argv[2] != '%')
+		if ((*argv[2] != '+' && *argv[2] != '-' && *argv[2] != '*'
+		&& *argv[2] != '/' && *argv[2] != '%') || argv[2][1] != '\0')
 		{
 			printf("Error\n");
 			exit(99);
