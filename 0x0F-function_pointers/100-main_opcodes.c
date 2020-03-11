@@ -23,9 +23,9 @@ int main(int argc, char **argv)
 		for (i = 0; i < j; i++)
 		{
 			if (i < j - 1)
-				printf("%hhx ", p[i]);
+				printf("%02hhx ", p[i]);
 			else
-				printf("%hhx\n", p[i]);
+				printf("%02hhx\n", p[i]);
 		}
 	}
 	else
