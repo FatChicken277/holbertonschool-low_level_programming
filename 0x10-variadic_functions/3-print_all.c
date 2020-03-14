@@ -1,5 +1,6 @@
 #include "variadic_functions.h"
 #include <stdio.h>
+void funaux(int j);
 /**
  *print_all - print n types;
  *@format: format;
@@ -41,6 +42,20 @@ void print_all(const char * const format, ...)
 		if (i != j)
 			printf(", ");
 	}
-	printf("\n");
+	funaux(j);
 	va_end(list);
+}
+
+/**
+ *funaux - print new line;
+ *@j: size of format;
+ */
+void funaux(int j)
+{
+	switch (j != 0)
+	{
+	case 1:
+	printf("\n");
+		break;
+	}
 }
