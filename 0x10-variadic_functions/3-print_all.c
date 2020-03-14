@@ -1,6 +1,5 @@
 #include "variadic_functions.h"
 #include <stdio.h>
-void funaux(int j);
 /**
  *print_all - print n types;
  *@format: format;
@@ -9,12 +8,10 @@ void funaux(int j);
 void print_all(const char * const format, ...)
 {
 	va_list list;
-	int i = 0, j = 0;
+	int i = 0, j = 1;
 	char *p;
 
 	va_start(list, format);
-	while (format && format[j])
-		j++;
 	while (format && format[i])
 	{
 		switch (format[i])
@@ -30,32 +27,21 @@ void print_all(const char * const format, ...)
 			break;
 		case 's':
 		p = va_arg(list, char *);
-		if (p == NULL)
+		if (p != NULL)
 		{
+			printf("%s", p);
+			break;
+		}
 			printf("(nil)");
 			break;
+		default:
+		j = 0;
 		}
-		printf("%s", p);
-			break;
-		}
-		i++;
-		if (i != j)
+		if (format[i + 1] != '\0' && j)
 			printf(", ");
+		i++;
+		j++;
 	}
-	funaux(j);
-	va_end(list);
-}
-
-/**
- *funaux - print new line;
- *@j: size of format;
- */
-void funaux(int j)
-{
-	switch (j != 0)
-	{
-	case 1:
 	printf("\n");
-		break;
-	}
+	va_end(list);
 }
