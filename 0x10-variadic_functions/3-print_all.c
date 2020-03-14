@@ -6,71 +6,76 @@
  *@separator: char separator;
  */
 
+void operacion(void *a)
+{
+	printf("%c", *(char *)a);
+}
+
+void operacion2(void *a)
+{
+	printf("%d", *(int *)a);
+}
+
+void operacion3(void *a)
+{
+	printf("%f", *(float *)a);
+}
+
+void operacion4(void *a)
+{
+	printf("%s", *(char **)a);
+}
+
+typedef struct op
+{
+    char *op;
+    void (*f)(void *);
+} formato;
 
 void print_all(const char * const format, ...)
 {
-	va_list list;
-	va_list list2;
-	va_list list3;
-	va_list list4;
+    va_list list;
+    int i = 0, j = 0;
+	void *x;
 
+    formato ops[] = {
+    {"c", operacion},
+    {"i", operacion2},
+    {"f", operacion3},
+    {"s", operacion4},
+    {"\0", operacion},
+    {NULL, NULL}
+    };
 
-	int i = 0, j = 0;
+    va_start(list, format);
 
-	va_start(list, format);
-	va_start(list2, format);
-	va_start(list3, format);
-	va_start(list4, format);
+    while (format[i] != '\0')
+    {
+        j = 0;
 
-while (format[j] != '\0')
-{
-	j++;
-}
-j--;
+        while ((format[i] != ops[j].op[0]) && (ops[j].op[0] != '\0'))
+        {
+            j++;
+        }
 
-printf("%d", j);
+        if (format[i] == ops[j].op[0])
+        {
+			x = va_arg(list, void *);
+            ops[j].f(&x);
 
-	while (format[i] != '\0')
-	{
-		if (i < j)
-		{
-
-			switch (format[i])
+			if (format[i+1] == '\0')
 			{
-			case 'i': printf("%d, ", va_arg(list, int));
-				break;
-			case 'c': printf("%c, ", va_arg(list2, int));
-				break;
-			case 'f': printf("%f, ", va_arg(list3, double));
-				break;
-			case 's': printf("%s, ", va_arg(list4, char *));
+				printf("\n");
 				break;
 			}
-		}
 
-		if (i == j)
-		{
-			switch (format[i])
-			{
-			case 'i': printf("%d", va_arg(list, int));
-				break;
-			case 'c': printf("%c", va_arg(list2, int));
-				break;
-			case 'f': printf("%f", va_arg(list3, double));
-				break;
-			case 's': printf("%s", va_arg(list4, char *));
-				break;
-			}
-		}
+			printf(", ");
 
-		
-		i++;
-	}
-	printf("\n");
-	va_end(list);
-	va_end(list2);
-	va_end(list3);
-	va_end(list4);
+        }
+
+        i++;
+    }
+
+    va_end(list);
 
 }
-
