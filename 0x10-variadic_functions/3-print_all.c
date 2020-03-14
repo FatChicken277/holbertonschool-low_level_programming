@@ -1,81 +1,46 @@
 #include "variadic_functions.h"
 #include <stdio.h>
 /**
- *print_strings - print n strings;
- *@n: number of strings
- *@separator: char separator;
+ *print_all - print n types;
+ *@format: format;
  */
-
-void operacion(void *a)
-{
-	printf("%c", *(char *)a);
-}
-
-void operacion2(void *a)
-{
-	printf("%d", *(int *)a);
-}
-
-void operacion3(void *a)
-{
-	printf("%f", *(float *)a);
-}
-
-void operacion4(void *a)
-{
-	printf("%s", *(char **)a);
-}
-
-typedef struct op
-{
-    char *op;
-    void (*f)(void *);
-} formato;
 
 void print_all(const char * const format, ...)
 {
-    va_list list;
-    int i = 0, j = 0;
-	void *x;
+	va_list list;
+	int i = 0, j = 0;
+	char *p;
 
-    formato ops[] = {
-    {"c", operacion},
-    {"i", operacion2},
-    {"f", operacion3},
-    {"s", operacion4},
-    {"\0", operacion},
-    {NULL, NULL}
-    };
-
-    va_start(list, format);
-
-    while (format[i] != '\0')
-    {
-        j = 0;
-
-        while ((format[i] != ops[j].op[0]) && (ops[j].op[0] != '\0'))
-        {
-            j++;
-        }
-
-        if (format[i] == ops[j].op[0])
-        {
-			x = va_arg(list, void *);
-            ops[j].f(&x);
-
-			if (format[i+1] == '\0')
-			{
-				printf("\n");
-				break;
-			}
-
+	va_start(list, format);
+	while (format && format[j])
+		j++;
+	while (format && format[i])
+	{
+		switch (format[i])
+		{
+		case 'i':
+		printf("%d", va_arg(list, int));
+			break;
+		case 'c':
+		printf("%c", va_arg(list, int));
+			break;
+		case 'f':
+		printf("%f", va_arg(list, double));
+			break;
+		case 's':
+		p = va_arg(list, char *);
+		if (p == NULL)
+		{
+			printf("(nil)");
+			break;
+		}
+		printf("%s", p);
+			break;
+		}
+		i++;
+		if (i != j)
 			printf(", ");
-
-        }
-
-        i++;
-    }
-
-    va_end(list);
-
+	}
+	printf("\n");
+	va_end(list);
 }
