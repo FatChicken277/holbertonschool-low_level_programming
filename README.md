@@ -17,6 +17,13 @@
 - [C Recursion](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x08-recursion)
 - [C Static libraries](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x09-static_libraries)
 - [C Argc, argv](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x0A-argc_argv)
+- [C Malloc, free](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x0B-malloc_free)
+- [C More Malloc, free](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x0C-more_malloc_free)
+- [C Preprocessor](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x0D-preprocessor)
+- [C Structures, typedef](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x0E-structures_typedef)
+- [C Function pointers](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x0F-function_pointers)
+- [C Variadic functions](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x10-variadic_functions)
+- [C Linked lists](https://github.com/FatChicken277/holbertonschool-low_level_programming/tree/master/0x12-singly_linked_lists)
 
 </details>
 
