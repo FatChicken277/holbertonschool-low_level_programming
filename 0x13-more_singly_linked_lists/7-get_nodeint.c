@@ -17,8 +17,7 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 		}
 		else
 		{
-			head->n = 0;
-			return (head);
+			return (NULL);
 		}
 	}
 	return (head);
