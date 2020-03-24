@@ -9,7 +9,7 @@ int pop_listint(listint_t **head)
 	int i = 0;
 	listint_t *nodo = *head;
 
-	if (head == NULL)
+	if (*head == NULL)
 	{
 		return (i);
 	}
