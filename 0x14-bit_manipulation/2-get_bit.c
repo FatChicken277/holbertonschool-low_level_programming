@@ -22,6 +22,10 @@ int get_bit(unsigned long int n, unsigned int index)
 			return (0);
 		}
 	}
+	else
+	{
+		return (-1);
+	}
 	for (l = 0; x; l++)
 	{
 		x = x >> 1;
@@ -43,5 +47,4 @@ int get_bit(unsigned long int n, unsigned int index)
 	{
 		return (0);
 	}
-	return (-1);
 }
