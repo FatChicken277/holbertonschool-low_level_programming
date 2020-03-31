@@ -8,14 +8,17 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int file, i, b;
+	int file, i = 0, b;
 
 	if (!filename)
 	{
 		return (-1);
 	}
-	for (i = 0; text_content[i] != '\0'; i++)
-		;
+	if (text_content)
+	{
+		for (i = 0; text_content[i] != '\0'; i++)
+			;
+	}
 	file = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
 	if (file < 0)
 	{
