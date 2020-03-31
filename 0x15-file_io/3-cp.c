@@ -86,6 +86,4 @@ void cerrar(int fileto, int filefrom, const char *file, const char *file2)
 		dprintf(2, "Error: Can't close fd %s\n", file2);
 		exit(100);
 	}
-	close(fileto);
-	close(filefrom);
 }
