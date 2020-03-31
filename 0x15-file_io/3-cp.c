@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "holberton.h"
 void copy_file(const char*, const char*);
+void cerrar(int fileto, int filefrom);
 /**
  * main - copy a file.
  * @ac: argc.
@@ -14,6 +15,16 @@ int main(int ac, char **av)
 	{
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
+	}
+	if (!av[1])
+	{
+		dprintf(2, "Error: Can't read from file %s\n", av[1]);
+		exit(98);
+	}
+	if (!av[2])
+	{
+		dprintf(2, "Error: Can't write to %s\n", av[2]);
+		exit(99);
 	}
 	copy_file(av[1], av[2]);
 	return (0);
@@ -42,7 +53,26 @@ void copy_file(const char *file_from, const char *file_to)
 		exit(99);
 	}
 	a = read(filefrom, bf, 1024);
-	write(fileto, bf, a);
+	if (a < 0)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		exit(98);
+	}
+	if (write(fileto, bf, a) < 0)
+	{
+		dprintf(2, "Error: Can't write to %s\n", file_to);
+		exit(99);
+	}
+	cerrar(fileto, filefrom);
+}
+
+/**
+ * cerrar - close all open files.
+ * @filefrom: file from.
+ * @fileto: file to.
+ */
+void cerrar(int fileto, int filefrom)
+{
 	if (close(fileto) == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", fileto);
