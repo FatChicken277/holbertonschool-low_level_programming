@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "holberton.h"
+#include <unistd.h>
+#include <fcntl.h>
 void copy_file(const char*, const char*);
-void cerrar(int fileto, int filefrom);
+void cerrar(int fileto, int filefrom, const char *file, const char *file2);
 /**
  * main - copy a file.
  * @ac: argc.
@@ -63,24 +64,26 @@ void copy_file(const char *file_from, const char *file_to)
 		dprintf(2, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
-	cerrar(fileto, filefrom);
+	cerrar(fileto, filefrom, file_from, file_from);
 }
 
 /**
  * cerrar - close all open files.
  * @filefrom: file from.
  * @fileto: file to.
+ * @file: file to.
+ * @file2: file from.
  */
-void cerrar(int fileto, int filefrom)
+void cerrar(int fileto, int filefrom, const char *file, const char *file2)
 {
 	if (close(fileto) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fileto);
+		dprintf(2, "Error: Can't close fd %s\n", file);
 		exit(100);
 	}
 	if (close(filefrom) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", filefrom);
+		dprintf(2, "Error: Can't close fd %s\n", file2);
 		exit(100);
 	}
 	close(fileto);
