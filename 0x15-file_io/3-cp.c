@@ -38,28 +38,29 @@ int main(int ac, char **av)
  */
 void copy_file(const char *file_from, const char *file_to)
 {
-	int fileto, filefrom, a;
+	int fileto, filefrom, a, b;
 	char *bf[1024];
 
 	filefrom = open(file_from, O_RDONLY);
-	if (filefrom < 0)
+	if (filefrom == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 	fileto = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fileto < 0)
+	if (fileto == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 	a = read(filefrom, bf, 1024);
-	if (a < 0)
+	if (a == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	if (write(fileto, bf, a) < 0)
+	b = write(fileto, bf, a);
+	if (b == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
@@ -74,12 +75,16 @@ void copy_file(const char *file_from, const char *file_to)
  */
 void cerrar(int fileto, int filefrom)
 {
-	if (close(fileto) == -1)
+	int a, b;
+
+	a = close(fileto);
+	if (a == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileto);
 		exit(100);
 	}
-	if (close(filefrom) == -1)
+	b = close(filefrom);
+	if (b == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", filefrom);
 		exit(100);
