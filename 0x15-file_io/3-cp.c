@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 void copy_file(const char*, const char*);
-void cerrar(int fileto, int filefrom, const char *file, const char *file2);
+void cerrar(int fileto, int filefrom);
 /**
  * main - copy a file.
  * @ac: argc.
@@ -64,26 +64,24 @@ void copy_file(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
-	cerrar(fileto, filefrom, file_from, file_from);
+	cerrar(fileto, filefrom);
 }
 
 /**
  * cerrar - close all open files.
  * @filefrom: file from.
  * @fileto: file to.
- * @file: file to.
- * @file2: file from.
  */
-void cerrar(int fileto, int filefrom, const char *file, const char *file2)
+void cerrar(int fileto, int filefrom)
 {
 	if (close(fileto) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", file);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileto);
 		exit(100);
 	}
 	if (close(filefrom) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", file2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", filefrom);
 		exit(100);
 	}
 }
