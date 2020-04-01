@@ -53,17 +53,20 @@ void copy_file(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
-	a = read(filefrom, bf, 1024);
-	if (a == -1)
+	for (a = 1024; a == 1024;)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-	b = write(fileto, bf, a);
-	if (b == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
+		a = read(filefrom, bf, 1024);
+		if (a == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			exit(98);
+		}
+		b = write(fileto, bf, a);
+		if (b == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			exit(99);
+		}
 	}
 	cerrar(fileto, filefrom);
 }
