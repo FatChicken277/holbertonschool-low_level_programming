@@ -19,8 +19,10 @@ void hash_table_delete(hash_table_t *ht)
 			while (aux)
 			{
 				tmp = aux->next;
-				free(aux->key);
-				free(aux->value);
+				if (aux->key)
+					free(aux->key);
+				if (aux->value)
+					free(aux->value);
 				free(aux);
 				aux = tmp;
 			}
