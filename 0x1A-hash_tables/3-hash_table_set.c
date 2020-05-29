@@ -16,11 +16,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	idx = key_index((unsigned char *)key, ht->size);
 
 	ht->array[idx] = malloc(sizeof(hash_node_t));
-	if(!ht->array[idx])
-		return(0);
+	if (!ht->array[idx])
+		return (0);
 
-	ht->array[idx]->key = (char *)->key;
-	ht->array[idx]->value = (char *)->value;
+	ht->array[idx]->key = (char *)key;
+	ht->array[idx]->value = (char *)value;
 	ht->array[idx]->next = NULL;
 
 	return (1);
