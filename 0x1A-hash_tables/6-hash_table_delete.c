@@ -11,6 +11,11 @@ void hash_table_delete(hash_table_t *ht)
 
 	if (!ht)
 		return;
+	if (!ht->array || !ht->size)
+	{
+		free(ht);
+		return;
+	}
 	for (i = 0; i < ht->size; i++)
 	{
 		if (ht->array[i])
