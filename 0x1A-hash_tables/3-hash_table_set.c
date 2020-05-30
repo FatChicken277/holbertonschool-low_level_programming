@@ -1,4 +1,6 @@
 #include "hash_tables.h"
+int node_create(hash_table_t *ht, unsigned long int idx,
+const char *key, const char *value);
 
 /**
  * hash_table_set - adds an element to the hash table.
@@ -9,33 +11,57 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int idx;
-	hash_node_t *new;
+	unsigned long int idx = 0, a;
+	hash_node_t *aux = NULL;
 
-	if (strlen(key) == 0 || !ht)
+	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
-	idx = key_index((unsigned char *)key, ht->size);
-
-	if (ht->array[idx] && strcmp(ht->array[idx]->key, key) != 0)
+	idx = key_index((const unsigned char *)key, ht->size);
+	aux = ht->array[idx];
+	while (aux != NULL)
 	{
-		new = malloc(sizeof(hash_node_t));
-		if (!new)
-			return (0);
-		new->key = strdup(key);
-		new->value = strdup(value);
-		new->next = ht->array[idx];
-		ht->array[idx] = new;
-
-		return (1);
+		if (strcmp(aux->key, key) == 0)
+		{
+			if (aux->value != NULL)
+				free(aux->value);
+			aux->value = strdup(value);
+			if (aux->value == NULL)
+				return (0);
+			return (1);
+		}
+		aux = aux->next;
 	}
-
-	ht->array[idx] = malloc(sizeof(hash_node_t));
-	if (!ht->array[idx])
+	a = node_create(ht, idx, key, value);
+	if (a == 0)
 		return (0);
+	return (1);
+}
 
-	ht->array[idx]->key = strdup(key);
-	ht->array[idx]->value = strdup(value);
-	ht->array[idx]->next = NULL;
+int node_create(hash_table_t *ht, unsigned long int idx,
+const char *key, const char *value)
+{
+	hash_node_t *new = NULL;
 
+	new = malloc(sizeof(hash_node_t));
+	if (new == NULL)
+		return (0);
+	new->key = strdup(key);
+	if (new->key == NULL)
+	{
+		free(new);
+		return (0);
+	}
+	new->value = strdup(value);
+	if (new->value == NULL)
+	{
+		free(new->key);
+		free(new);
+		return (0);
+	}
+	if (ht->array[idx] == NULL)
+		new->next = NULL;
+	else
+		new->next = ht->array[idx];
+	ht->array[idx] = new;
 	return (1);
 }
