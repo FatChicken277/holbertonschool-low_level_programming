@@ -16,11 +16,13 @@ def island_perimeter(grid):
     if len(grid) == 0:
         return
     perimeter = 0
+    grid = [[0] * len(grid[0])] + grid + [[0] * len(grid[0])]
     for j, row in enumerate(grid):
         if j == 0:
-            copy_row = grid[0]
+            copy_row = [0] + grid[0] + [0]
         else:
-            copy_row = grid[j-1]
+            copy_row = [0] + grid[j-1] + [0]
+        row = [0] + row + [0]
         rlen = len(row) - 1
         for i, col in enumerate(row):
             if col == 1:
