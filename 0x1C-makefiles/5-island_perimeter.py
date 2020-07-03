@@ -28,7 +28,7 @@ def island_perimeter(grid):
                     perimeter += 1
                 if i != 0 and row[i-1] == 0:
                     perimeter += 1
-        for k in range(rlen):
-            if copy_row[k] != row[k]:
+        for k in range(rlen+1):
+            if row[k] != copy_row[k]:
                 perimeter += 1
     return perimeter
